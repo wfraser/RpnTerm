@@ -23,12 +23,12 @@ namespace RpnTerm
             return m_stack.Take(startingIndex).Reverse();
         }
 
-        public void Push(decimal n)
+        private void Push(decimal n)
         {
             m_stack.Push(n);
         }
 
-        public decimal Pop()
+        private decimal Pop()
         {
             if (m_stack.Count == 0)
             {

@@ -97,7 +97,7 @@ namespace RpnTerm
                 bool haveStack = visibleStack.MoveNext();
                 Console.Out.WriteLine("{0,-" + paneWidth.ToString() + "}" + s_verticalBar + "{1,-" + paneWidth.ToString() + "}",
                     visibleInput.ElementAtOrDefault(i, string.Empty),
-                    haveStack ? string.Format("{0}: {1}", i, visibleStack.Current.ToString()) : string.Empty);
+                    haveStack ? string.Format("{0}: {1}", i + 1, visibleStack.Current.ToString()) : string.Empty);
             }
 
             Console.Out.Write("> ");

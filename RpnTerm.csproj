@@ -45,6 +45,7 @@
     <Compile Include="ExtensionMethods.cs" />
     <Compile Include="Display.cs" />
     <Compile Include="Enums.cs" />
+    <Compile Include="CircularBuffer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Statics.cs" />

@@ -33,5 +33,28 @@ namespace RpnTerm
                 return x.ElementAt(index);
             }
         }
+
+        public static IList<string> Chunk(this string s, int chunkSize)
+        {
+            var chunks = new List<string>();
+            var currentChunk = new StringBuilder();
+            for (int i = 0; i < s.Length; i++)
+            {
+                if (currentChunk.Length < chunkSize)
+                {
+                    currentChunk.Append(s[i]);
+                }
+                else
+                {
+                    chunks.Add(currentChunk.ToString());
+                    currentChunk.Clear();
+                }
+            }
+            if (currentChunk.Length > 0)
+            {
+                chunks.Add(currentChunk.ToString());
+            }
+            return chunks;
+        }
     }
 }

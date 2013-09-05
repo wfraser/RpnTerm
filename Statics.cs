@@ -19,6 +19,7 @@ namespace RpnTerm
             { Command.Quit,     "Exits the program." },
             { Command.Exit,     "Exits the program." },
             { Command.Default,  null },
+            { Command.Clear,    "Clears the left panel of the screen (user input and messages)." },
             { Command.Push,     "Push number(s) onto the stack. Arguments: numbers to push to the stack, in order." },
             { Command.Pop,      "Pop number(s) from the stack. Argument: how many numbers to pop. Default = 1." },
             { Command.Swap,     "Swap numbers on the stack. Arguments: indices to swap. If one argument is given, it swaps that index with #1. If no arguments are given, it swaps #1 and #2." },

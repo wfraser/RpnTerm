@@ -5,6 +5,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -77,8 +78,10 @@ namespace RpnTerm
                 string input = Console.In.ReadLine();
                 if (input == null)
                 {
+                    Console.Out.WriteLine("Read null; exiting.");
                     break;
                 }
+                m_display.UserInput(input);
 
                 string[] words = input.Split(' ');
                 Command command = ParseInput(words[0]);
@@ -107,10 +110,25 @@ namespace RpnTerm
                             }
                             else
                             {
+                                var titleAttribute = Assembly.GetExecutingAssembly().GetCustomAttributes<AssemblyTitleAttribute>().First();
+                                var versionAttribute = Assembly.GetExecutingAssembly().GetCustomAttributes<AssemblyFileVersionAttribute>().First();
+                                var copyrightAttribute = Assembly.GetExecutingAssembly().GetCustomAttributes<AssemblyCopyrightAttribute>().First();
                                 IEnumerable<string> allCommands = Statics.CommandHelp.Where(pair => pair.Value != null).Select(pair => pair.Key.ToString());
-                                m_display.ShowMessage(string.Format("Commands: {0}\nType \"help <command>\" for detailed information.\n", string.Join(", ", allCommands)));
+
+                                string message = string.Format("{0} v{1} {2}\nCommands: {3}\nType \"help <command>\" for detailed information.\n",
+                                    titleAttribute.Title,
+                                    versionAttribute.Version,
+                                    copyrightAttribute.Copyright,
+                                    string.Join(", ", allCommands));
+
+                                m_display.ShowMessage(message);
                             }
                         }
+                        break;
+
+                    case Command.Clear:
+                        m_display.ClearUserInput();
+                        m_display.Update();
                         break;
 
                     case Command.Unknown:

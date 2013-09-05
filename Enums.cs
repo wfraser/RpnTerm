@@ -16,6 +16,7 @@ namespace RpnTerm
         Help,
         Quit, Exit,
         Default,    // When a bare number is entered. Behaves like Push.
+        Clear,
         Push,
         Pop,
         Swap,

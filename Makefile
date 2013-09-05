@@ -9,7 +9,7 @@ SDK=4
 SOURCES=\
     Properties/AssemblyInfo.cs \
     CalculatorStack.cs \
-    Circularbuffer.cs \
+    CircularBuffer.cs \
     Display.cs \
     Enums.cs \
     ExtensionMethods.cs \

@@ -110,9 +110,9 @@ namespace RpnTerm
                             }
                             else
                             {
-                                var titleAttribute = Assembly.GetExecutingAssembly().GetCustomAttributes<AssemblyTitleAttribute>().First();
-                                var versionAttribute = Assembly.GetExecutingAssembly().GetCustomAttributes<AssemblyFileVersionAttribute>().First();
-                                var copyrightAttribute = Assembly.GetExecutingAssembly().GetCustomAttributes<AssemblyCopyrightAttribute>().First();
+                                var titleAttribute = (AssemblyTitleAttribute)Assembly.GetExecutingAssembly().GetCustomAttributes(typeof(AssemblyTitleAttribute), false).First();
+                                var versionAttribute = (AssemblyFileVersionAttribute)Assembly.GetExecutingAssembly().GetCustomAttributes(typeof(AssemblyFileVersionAttribute), false).First();
+                                var copyrightAttribute = (AssemblyCopyrightAttribute)Assembly.GetExecutingAssembly().GetCustomAttributes(typeof(AssemblyCopyrightAttribute), false).First();
                                 IEnumerable<string> allCommands = Statics.CommandHelp.Where(pair => pair.Value != null).Select(pair => pair.Key.ToString());
 
                                 string message = string.Format("{0} v{1} {2}\nCommands: {3}\nType \"help <command>\" for detailed information.\n",

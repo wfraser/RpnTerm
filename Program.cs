@@ -25,6 +25,7 @@ namespace RpnTerm
             // Can't use Enum.TryParse here because it parses numbers as enum values.
             foreach (string name in Enum.GetNames(typeof(Command)))
             {
+                //TODO: allow abbreviations
                 if (input.Equals(name, StringComparison.InvariantCultureIgnoreCase))
                 {
                     return (Command)Enum.Parse(typeof(Command), name);
@@ -70,13 +71,12 @@ namespace RpnTerm
             do
             {
                 string input = Console.In.ReadLine();
-                string[] words = input.Split(' ');
-
                 if (input == null)
                 {
                     break;
                 }
 
+                string[] words = input.Split(' ');
                 Command command = ParseInput(words[0]);
                 switch (command)
                 {
